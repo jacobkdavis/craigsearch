@@ -18,9 +18,6 @@ def index(request):
 def searchresults(request, searchquery_id):
     searchquery = get_object_or_404(SearchQuery, pk=searchquery_id)
     
-    #url = "https://"+searchquery.region+ ".craigslist.org/search/" + searchquery.category + "?query=" + searchquery.querystring
-    
-    
     results = get_region_searchresults(searchquery)
 
     context = {'searchquery': searchquery, 'searchresult_list': results.values()}
