@@ -1,0 +1,21 @@
+{% extends 'craigsearch/base.html' %}
+
+{% block title %}Available searches{% endblock %}
+
+{% block content %}
+
+<style>
+    .search-list li { font-size: 18px; margin-bottom: 10px;}
+</style>
+
+{% if searchquery_list %}
+    <ul class='search-list'>
+    {% for searchquery in searchquery_list %}
+        <li><a href="{% url 'craigsearch:searchresults' searchquery.id %}">{{ searchquery }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No searches are available.</p>
+{% endif %}
+
+{% endblock %}
